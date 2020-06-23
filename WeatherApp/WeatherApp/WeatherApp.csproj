@@ -1,0 +1,89 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="fonts\Montserrat-Bold.ttf" />
+    <None Remove="fonts\Montserrat-Regular.ttf" />
+    <None Remove="fonts\Montserrat-Thin.ttf" />
+    <None Remove="fonts\Montserrat.ttf" />
+    <None Remove="fonts\MontserratBold.ttf" />
+    <None Remove="fonts\MontserratRegular.ttf" />
+    <None Remove="fonts\MontserratThin.ttf" />
+    <None Remove="images\01d.png" />
+    <None Remove="images\01n.png" />
+    <None Remove="images\02d.png" />
+    <None Remove="images\02n.png" />
+    <None Remove="images\03d.png" />
+    <None Remove="images\03n.png" />
+    <None Remove="images\04d.png" />
+    <None Remove="images\04n.png" />
+    <None Remove="images\09d.png" />
+    <None Remove="images\09n.png" />
+    <None Remove="images\10d.png" />
+    <None Remove="images\10n.png" />
+    <None Remove="images\11d.png" />
+    <None Remove="images\11n.png" />
+    <None Remove="images\13d.png" />
+    <None Remove="images\13n.png" />
+    <None Remove="images\50d.png" />
+    <None Remove="images\50n.png" />
+    <None Remove="images\refresh.png" />
+    <None Remove="images\search.png" />
+    <None Remove="images\unknown.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="fonts\Montserrat.ttf" />
+    <EmbeddedResource Include="fonts\MontserratBold.ttf" />
+    <EmbeddedResource Include="fonts\MontserratThin.ttf" />
+    <EmbeddedResource Include="images\01d.png" />
+    <EmbeddedResource Include="images\01n.png" />
+    <EmbeddedResource Include="images\02d.png" />
+    <EmbeddedResource Include="images\02n.png" />
+    <EmbeddedResource Include="images\03d.png" />
+    <EmbeddedResource Include="images\03n.png" />
+    <EmbeddedResource Include="images\04d.png" />
+    <EmbeddedResource Include="images\04n.png" />
+    <EmbeddedResource Include="images\09d.png" />
+    <EmbeddedResource Include="images\09n.png" />
+    <EmbeddedResource Include="images\10d.png" />
+    <EmbeddedResource Include="images\10n.png" />
+    <EmbeddedResource Include="images\11d.png" />
+    <EmbeddedResource Include="images\11n.png" />
+    <EmbeddedResource Include="images\13d.png" />
+    <EmbeddedResource Include="images\13n.png" />
+    <EmbeddedResource Include="images\50d.png" />
+    <EmbeddedResource Include="images\50n.png" />
+    <EmbeddedResource Include="images\refresh.png" />
+    <EmbeddedResource Include="images\search.png" />
+    <EmbeddedResource Include="images\unknown.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="sqlite-net-pcl" Version="1.7.335" />
+    <PackageReference Include="Xamarin.Forms" Version="4.7.0.968" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.5.3.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Mono.Android">
+      <HintPath>..\..\..\..\..\..\..\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\MonoAndroid\v9.0\Mono.Android.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Views\QueryHistory.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

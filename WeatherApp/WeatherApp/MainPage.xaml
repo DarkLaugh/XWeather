@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:local ="clr-namespace:WeatherApp.ViewModels"
+             xmlns:extensions ="clr-namespace:WeatherApp.Helpers"
+             mc:Ignorable="d"
+             x:Class="WeatherApp.MainPage"
+             NavigationPage.HasNavigationBar="False">
+    <RelativeLayout x:Name="MainRelativeLayout" BackgroundColor="WhiteSmoke">
+        <StackLayout x:Name="InformationStack">
+            <Button 
+                Text="History" 
+                Clicked="OnHistoryButtonClicked"
+                BackgroundColor="WhiteSmoke"
+                FontFamily = "Montserrat"
+                FontSize = "20"
+                TextColor = "Black"
+                HorizontalOptions="Center">
+            </Button>
+
+            <Label x:Name="TempLabel" 
+                   Text="{Binding CurrentWeatherInfo.Main.Temp, StringFormat='{0:F0} °C'}"
+                   FontFamily = "Montserrat"
+                   FontSize = "55"
+                   TextColor = "Black"
+                   HorizontalTextAlignment="Center">
+            </Label>
+
+            <Label x:Name="City" 
+                   Text="{Binding CurrentWeatherInfo.Name}"
+                   FontFamily = "Montserrat"
+                   FontSize = "25"
+                   TextColor = "Black"
+                   HorizontalTextAlignment="Center">
+            </Label>
+
+            <ActivityIndicator x:Name="LoadingIndicator" IsVisible="{Binding IsLoading}" IsRunning="{Binding IsLoading}"
+                               Color="DarkOrange">
+            </ActivityIndicator>
+
+            <Label x:Name="Weather" 
+                   Text="{Binding CurrentWeatherInfo.Weather[0].Description}"
+                   FontFamily = "MontserratBold"
+                   FontSize = "25"
+                   TextColor = "Black"
+                   HorizontalTextAlignment="Center">
+            </Label>
+
+            <Image x:Name="WeatherIcon"
+                   Source="{Binding IconSource}"
+                   WidthRequest="150"
+                   HeightRequest="150">
+            </Image>
+        </StackLayout>
+
+        <StackLayout x:Name="InteractiveStack" Orientation="Horizontal" Spacing="60"
+            RelativeLayout.YConstraint="{ConstraintExpression
+                            Type=RelativeToParent,
+                            Property=Height,
+                            Factor=1,
+                            Constant=-80}"
+               RelativeLayout.XConstraint="{ConstraintExpression
+                            Type=RelativeToParent,
+                            Property=Width,
+                            Factor=0.05}">
+            <Entry x:Name="CityEntry"
+                   Placeholder="City"
+                   PlaceholderColor="Black"
+                   TextColor="Black"
+                   WidthRequest="250"
+                   FontSize="25"
+                   FontFamily="Montserrat">
+            </Entry>
+
+            <ImageButton x:Name="SearchBtn"
+                         Source="{extensions:EmbededImage WeatherApp.images.search.png}"
+                         Clicked="OnSearchButtonClicked"
+                         BackgroundColor = "DarkOrange"
+                         WidthRequest = "50"
+                         HeightRequest = "50"
+                         Padding = "12"
+                         CornerRadius = "25">
+            </ImageButton>
+        </StackLayout>
+    </RelativeLayout>
+</ContentPage>
